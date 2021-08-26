@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapState} from 'learn-vuex'
 export default {
     name: "index",
     props: {
