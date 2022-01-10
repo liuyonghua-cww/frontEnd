@@ -18,7 +18,7 @@
 
 <script>
 import Item from './Item';
-import {mapState} from 'vuex';
+import {mapState} from 'learn-vuex';
 import {tabCurrent} from '@/directives'
 export default {
     components: {

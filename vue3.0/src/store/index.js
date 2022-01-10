@@ -1,4 +1,4 @@
-import {createStore} from 'vuex'
+import {createStore} from 'learn-vuex'
 
 export default createStore({
     state: {
