@@ -39,4 +39,4 @@ p.then(res => {
 })
 ```
 
-相信大家都知道 new Promise() 是同步的，p.then() 是异步的；
+相信大家都知道 new Promise() 是同步的，p.then() 是异步的；那有想过问什么会是这样吗？这就涉及到Promise为什么要这样去设计的问题了。
