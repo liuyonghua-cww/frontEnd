@@ -10,5 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "vite": "^2.7.10"
+  },
+  "dependencies": {
+    "downloadjs": "^1.4.7"
   }
 }
