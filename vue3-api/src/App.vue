@@ -5,7 +5,7 @@
               :data="item"
               @remove="remove"
         ></list>
-        <return-render-function/>
+       <!-- <return-render-function/>-->
     </div>
 </template>
 

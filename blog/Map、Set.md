@@ -20,8 +20,7 @@ map.set(123, 456)
 ```
 
 output:
-
-![](./img/企业微信截图_20220113163755.png)
+![企业微信截图_20220113163755.png](https://lexiangla.com/assets/61a9654a7aa011ec9d1c5ee629b12ecb)
 
 在这里我们可以看到Map有索引，并且使用 => 表示键值对
 
@@ -41,8 +40,7 @@ const map1 = new Map([
 ```
 
 output
-
-![](./img/企业微信截图_20220113170134.png)
+![企业微信截图_20220113170134.png](https://lexiangla.com/assets/6db914b67aa011eca629b6d34d80cfa2)
 
 [ [ 'key1', 'value1'], ['key2', 'value2'] ] 与调用 Object.entries ()的结果相同。所以我们可以很方便的实现Object和Map之间的转换。
 
@@ -75,8 +73,7 @@ map3.set(true, 'boolean')
 ```
 
 output
-
-![](./img/企业微信截图_20220114095248.png)
+![企业微信截图_20220114095248.png](https://lexiangla.com/assets/788986287aa011ecbfb436586b062916)
 
 可以看到后面的 1 覆盖了前面的键为1的值，并且他把字符串的 “1” 和数字1都作为唯一的键。
 
@@ -106,8 +103,7 @@ console.log(map4);
 ```
 
 output
-
-![](./img/企业微信截图_20220114104544.png)
+![企业微信截图_20220114104544.png](https://lexiangla.com/assets/7ff2c2ee7aa011ec92e012b2373ff63a)
 
 可以看到把我们创建的obj对象作为了键。
 
@@ -122,8 +118,7 @@ map5.set({}, 'two');
 ```
 
 output
-
-![](./img/企业微信截图_20220114110400.png)
+![企业微信截图_20220114110400.png](https://lexiangla.com/assets/8680af407aa011ec8a895a62c74a2bd7)
 
 2. 
 
@@ -135,8 +130,7 @@ map6.set(obj2, 'two');
 ```
 
 output
-
-![](./img/企业微信截图_20220114110604.png)
+![企业微信截图_20220114110604.png](https://lexiangla.com/assets/8ce58c2a7aa011ec93f7820f36f102ed)
 
 #### Map与Object比较
 
@@ -173,8 +167,7 @@ set.add('a');
 ```
 
 output
-
-![](./img/企业微信截图_20220114150005.png)
+![企业微信截图_20220114150005.png](https://lexiangla.com/assets/946ed8987aa011ec857b6a75fdee2d35)
 
    由于Set只能包含唯一的值，所以后面添加进去的 ‘a’ 就被他忽略了。
 
@@ -199,7 +192,7 @@ output
 
 这也就是数组去重的一个简便方法了。
 
- **[访问](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set)了解更多关于Map的知识点**
+ **[访问](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set)了解更多关于Set的知识点**
 
    
 
