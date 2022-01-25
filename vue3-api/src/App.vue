@@ -7,6 +7,8 @@
         ></list>
        <!-- <return-render-function/>-->
     </div>
+    <hr>
+    <refs-reactive/>
 </template>
 
 <script>
@@ -14,10 +16,12 @@ import {
     ref,
     onMounted,
     onBeforeMount,
-    getCurrentInstance
+    getCurrentInstance,
+    reactive
 } from "vue";
 import List from './components/List';
-import returnRenderFunction from "@/components/returnRenderFunction";
+import ReturnRenderFunction from "@/components/returnRenderFunction";
+import RefsReactive from './components/refs-reactive'
 
 const _data = [ { value: 'lucy', id: 1 }, { value: 'jack', id: 2 } ];
 const _remove = (data, id) => {
@@ -27,19 +31,26 @@ export default {
     name: 'App',
     components: {
         List,
-        returnRenderFunction
+        ReturnRenderFunction,
+        RefsReactive
     },
 
     setup(props, ctx) {
         const instance = getCurrentInstance();
         console.log(instance.appContext.config.globalProperties);
+        /*
+        * ref 处理基本数据类型时响应式依靠的是 Object.defineProperty 的 get 与 set 完成
+        * 处理对象类型的数据时，在内部求助了 Vue3 的一个新函数————reactive函数，底层依赖的是ES6的proxy 对象
+        * */
         const data = ref(_data);
-        console.log('setup');
+        // console.log(data);
+
+        // console.log('setup');
         onBeforeMount(() => {
-            console.log('beforeMount');
+            // console.log('beforeMount');
         });
         onMounted(() => {
-            console.log('mounted');
+            // console.log('mounted');
         });
 
         const remove = (id) => {

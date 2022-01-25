@@ -19,13 +19,14 @@ export default {
         return {
             service,
             get,
+            page: 0
         };
     },
     methods: {
         // 581
         // https://www.makeapie.com/chart/get/xG3rZAFEqu
         async click() {
-            for (let i = 200; i < 250; i++) {
+            for (let i = 400; i < 500; i++) {
                 await this.begin(i);
             }
         },
@@ -34,7 +35,8 @@ export default {
                 url: `chart/list?builtinTags%5B%5D=category-work&sortBy=rank&pageSize=32&pageNumber=${ i }&author=all`,
                 method: 'get',
             });
-            console.log('page:', i);
+            console.log('pageStart:', i);
+            this.page = i;
             await this.beginDownload(res.data.data.charts);
 
         },
@@ -76,8 +78,10 @@ export default {
             }
 
             await zip.generateAsync({ type: 'blob' }).then((zipData) => {
-                FileSaver.saveAs(zipData, `${new Date().toLocaleString()}`);
+                FileSaver.saveAs(zipData, `page-${this.page}-${new Date().toLocaleString()}`);
             });
+            console.log('pageEnd:', this.page);
+
 
 
         },
