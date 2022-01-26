@@ -1,4 +1,5 @@
 <template>
+    <h1>refs-reactive</h1>
     <span>信息：</span>
     <div><span>姓名：</span><span>{{name}}</span></div>
     <div><span>职位：</span><span>{{job.type}}</span></div>

@@ -11,6 +11,9 @@
     <refs-reactive/>
     <hr>
     <proxy-test/>
+    <hr>
+    <computed/>
+
 </template>
 
 <script>
@@ -25,6 +28,7 @@ import List from './components/List';
 import ReturnRenderFunction from "@/components/returnRenderFunction";
 import RefsReactive from './components/refs-reactive'
 import ProxyTest from './components/Proxy-test'
+import Computed from './components/Computed'
 
 const _data = [ { value: 'lucy', id: 1 }, { value: 'jack', id: 2 } ];
 const _remove = (data, id) => {
@@ -36,7 +40,8 @@ export default {
         List,
         ReturnRenderFunction,
         RefsReactive,
-        ProxyTest
+        ProxyTest,
+        Computed
     },
 
     setup(props, ctx) {
@@ -73,6 +78,5 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
-    margin-top: 60px;
 }
 </style>
