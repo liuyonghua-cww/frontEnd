@@ -9,6 +9,8 @@
     </div>
     <hr>
     <refs-reactive/>
+    <hr>
+    <proxy-test/>
 </template>
 
 <script>
@@ -22,6 +24,7 @@ import {
 import List from './components/List';
 import ReturnRenderFunction from "@/components/returnRenderFunction";
 import RefsReactive from './components/refs-reactive'
+import ProxyTest from './components/Proxy-test'
 
 const _data = [ { value: 'lucy', id: 1 }, { value: 'jack', id: 2 } ];
 const _remove = (data, id) => {
@@ -32,16 +35,14 @@ export default {
     components: {
         List,
         ReturnRenderFunction,
-        RefsReactive
+        RefsReactive,
+        ProxyTest
     },
 
     setup(props, ctx) {
         const instance = getCurrentInstance();
         console.log(instance.appContext.config.globalProperties);
-        /*
-        * ref 处理基本数据类型时响应式依靠的是 Object.defineProperty 的 get 与 set 完成
-        * 处理对象类型的数据时，在内部求助了 Vue3 的一个新函数————reactive函数，底层依赖的是ES6的proxy 对象
-        * */
+
         const data = ref(_data);
         // console.log(data);
 

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    const person = {
+        name: 'zhangsan',
+        age: 12
+    };
+    /*// vue2 中的响应式
+    let p = {};
+    Object.defineProperties(p, {
+        name: {
+            get() {
+                return person.name
+            },
+            set(v) {
+                console.log('修改了name属性');
+                person.name = v;
+            }
+        },
+        age: {
+            get() {
+                return person.age
+            },
+            set(v) {
+                console.log('修改了age属性');
+                person.age = v;
+            }
+        }
+    });*/
+
+    // vue3 中的响应式
+    let p = new Proxy(person, {
+        /**
+         * 读取属性
+         * @param target 源对象
+         * @param p 读取的属性
+         * @param receiver 代理对象
+         */
+        get(target, p, receiver) {
+            console.log(target, p, receiver);
+            console.log(`读取了${target}对象的${p}属性`);
+            return target[p]
+        },
+        /**
+         * 修改、新增属性
+         * @param target
+         * @param p
+         * @param value
+         * @param receiver
+         */
+        set(target, p, value, receiver) {
+            console.log(`修改了${target}对象的${p}属性`);
+            target[p] = value;
+        },
+        /**
+         * 删除属性
+         * @param target
+         * @param p
+         */
+        deleteProperty(target, p) {
+            console.log(`删除了${target}对象的${p}属性`);
+            delete target[p]
+        }
+    })
+</script>
+</body>
+</html>
