@@ -1,19 +1,27 @@
 <template>
-    <div>
+    <!--<div>
         <list v-for="(item, index) of data"
               :key="index"
               :data="item"
               @remove="remove"
         ></list>
-       <!-- <return-render-function/>-->
-    </div>
+       &lt;!&ndash; <return-render-function/>&ndash;&gt;
+    </div>-->
     <hr>
     <refs-reactive/>
     <hr>
     <proxy-test/>
     <hr>
     <computed/>
-
+    <hr>
+    <watch/>
+    <hr>
+    <watch-effect/>
+    <hr>
+    <button @click="isShowLiftCycle = !isShowLiftCycle">关闭/显示LiftCycle</button>
+    <life-cycle v-if="isShowLiftCycle"/>
+    <hr>
+    <hook-test/>
 </template>
 
 <script>
@@ -29,7 +37,10 @@ import ReturnRenderFunction from "@/components/returnRenderFunction";
 import RefsReactive from './components/refs-reactive'
 import ProxyTest from './components/Proxy-test'
 import Computed from './components/Computed'
-
+import Watch from "./components/Watch";
+import WatchEffect from "./components/WatchEffect";
+import LifeCycle from "./components/LifeCycle";
+import HookTest from './components/HookTest'
 const _data = [ { value: 'lucy', id: 1 }, { value: 'jack', id: 2 } ];
 const _remove = (data, id) => {
     return data.filter(item => item.id !== id);
@@ -41,12 +52,16 @@ export default {
         ReturnRenderFunction,
         RefsReactive,
         ProxyTest,
-        Computed
+        Computed,
+        Watch,
+        WatchEffect,
+        LifeCycle,
+        HookTest
     },
 
     setup(props, ctx) {
         const instance = getCurrentInstance();
-        console.log(instance.appContext.config.globalProperties);
+        // console.log(instance.appContext.config.globalProperties);
 
         const data = ref(_data);
         // console.log(data);
@@ -63,10 +78,13 @@ export default {
             data.value = _remove(data.value, id);
         };
 
+        const isShowLiftCycle = ref(true)
+
 
         return {
             data,
-            remove
+            remove,
+            isShowLiftCycle
         };
     }
 };
@@ -78,5 +96,6 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
+    padding-bottom: 50px;
 }
 </style>
