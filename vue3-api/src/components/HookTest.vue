@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import { usePoint } from "../hooks/usePoint";
+import { usePoint } from "@/hooks/usePoint";
 
 export default {
     name: "HookTest",

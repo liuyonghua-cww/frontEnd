@@ -26,7 +26,7 @@ export default {
         // 581
         // https://www.makeapie.com/chart/get/xG3rZAFEqu
         async click() {
-            for (let i = 400; i < 500; i++) {
+            for (let i = 577; i < 590; i++) {
                 await this.begin(i);
             }
         },
