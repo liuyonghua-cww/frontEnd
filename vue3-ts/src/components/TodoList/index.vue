@@ -8,9 +8,10 @@
 import Item from './Item/index.vue';
 import { Store, useStore } from "vuex";
 import { ITodoItem } from "@/store/modules/todo";
+import { computed } from "vue"
 
 const store: Store<any> = useStore();
-const todoList: ITodoItem[] = store.state.todo.todoList;
+const todoList = computed<ITodoItem[]>(() => store.state.todo.todoList);
 
 </script>
 

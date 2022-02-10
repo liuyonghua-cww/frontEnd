@@ -9,6 +9,9 @@
 <script lang="ts" setup>
 import TodoInput from '@/components/TodoInput/index.vue';
 import TodoList from '@/components/TodoList/index.vue';
+import { IUseTodo, useTodo } from "@/hooks";
+const {setTodoList}: IUseTodo = useTodo();
+setTodoList();
 </script>
 
 
