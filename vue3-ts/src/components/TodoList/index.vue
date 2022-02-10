@@ -1,12 +1,18 @@
+<template>
+    <item v-for="item of todoList"
+          :key="item.id"
+          :item="item"
+    ></item>
+</template>
 <script lang="ts" setup>
-import Item from './Item/index.vue'
+import Item from './Item/index.vue';
+import { Store, useStore } from "vuex";
+import { ITodoItem } from "@/store/modules/todo";
+
+const store: Store<any> = useStore();
+const todoList: ITodoItem[] = store.state.todo.todoList;
 
 </script>
-<template>
-    <h2>todoList</h2>
-    <item/>
-</template>
-
 
 
 <style scoped>

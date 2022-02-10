@@ -1,9 +1,9 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/todoList',
-    component: () => import('../views/TodoList.vue')
-  }
+    path: '/',
+    component: () => import('../views/Todo.vue')
+  },
 ]
 
 const router = createRouter({
