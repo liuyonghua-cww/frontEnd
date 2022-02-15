@@ -52,12 +52,34 @@ const getLength: IGetLength = (value: type1): number => {
 getLength(123)
 
 interface IClass {
-    fun1: (value: string) => string
+    fun1(value: string): string
 }
+
 class Class1 implements IClass{
+    private a: string;
+    private _name: string = 'jack';
+    get name() {
+        console.log('获取了name属性')
+        return this._name;
+    }
+    set name(value: string) {
+        console.log(`设置了name属性为${value}`)
+        this._name = value;
+    }
+    // 在构造函数中，如果使用属性修饰符对参数进行修饰，那么这个参数就会自动变成改类的一个属性
+    constructor(
+        private v_private: string = 'v_private',
+        protected v_protected: string = 'v_protected',
+        public v_public: string = 'v_public'
+    ) {
+        this.a = 'aaa'
+    }
     fun1(value: string): string {
         return "";
     }
 
 }
+const class1 = new Class1()
+console.log(class1);
+
 

@@ -11,6 +11,7 @@ export interface IUseTodo {
 }
 export const useTodo = (): IUseTodo => {
     const store: Store<any> = useStore();
+    // 实时存储 todoList
     watch(() => _.cloneDeep(store.state.todo.todoList), (newValue, oldValue) => {
         saveTodoList();
     })
