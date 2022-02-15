@@ -1,6 +1,5 @@
-import { ITodoItem, TODO_ITEM_STATUS } from "@/store/modules/todo";
+import { ITodoItem, TODO_ITEM_STATUS, TODO_TYPE } from "@/store/modules/todo/types";
 import { Store, useStore } from "vuex";
-import { TODO_ACTION_TYPES } from "@/store/modules/todo/actionTypes";
 import { watch } from 'vue'
 import * as _ from  'lodash';
 
@@ -21,14 +20,14 @@ export const useTodo = (): IUseTodo => {
             content: value,
             status: TODO_ITEM_STATUS.WILL_DO
         }
-        store.dispatch(`todo/${TODO_ACTION_TYPES.ADD_TODO}`, todoItem)
+        store.dispatch(`todo/${TODO_TYPE.ADD_TODO}`, todoItem)
     }
     const removeTodo = (id: number) => {
-        store.dispatch(`todo/${TODO_ACTION_TYPES.REMOVE_TODO}`, id)
+        store.dispatch(`todo/${TODO_TYPE.REMOVE_TODO}`, id)
 
     }
     const setTodoStatus = (id: number, status: TODO_ITEM_STATUS) => {
-        store.dispatch(`todo/${TODO_ACTION_TYPES.SET_TODO_STATUS}`, {id: id, status})
+        store.dispatch(`todo/${TODO_TYPE.SET_TODO_STATUS}`, {id: id, status})
     }
 
     const saveTodoList = (): void => {
@@ -38,7 +37,7 @@ export const useTodo = (): IUseTodo => {
     // 初始化设置默认值
     const setTodoList = (): void => {
         const todoList = JSON.parse(localStorage.getItem('todoList') || '[]');
-        store.dispatch(`todo/${TODO_ACTION_TYPES.SET_TODO_LIST}`, todoList);
+        store.dispatch(`todo/${TODO_TYPE.SET_TODO_LIST}`, todoList);
     }
 
     return {

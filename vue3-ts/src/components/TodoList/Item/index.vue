@@ -20,7 +20,7 @@
     </div>
 </template>
 <script lang="ts" setup>
-import { ITodoItem, TODO_ITEM_STATUS } from "@/store/modules/todo";
+import { ITodoItem, TODO_ITEM_STATUS } from "@/store/modules/todo/types";
 import { Store, useStore} from 'vuex'
 import { useTodo } from "@/hooks";
 const props = defineProps<{

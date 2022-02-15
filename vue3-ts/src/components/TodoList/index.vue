@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 import Item from './Item/index.vue';
 import { Store, useStore } from "vuex";
-import { ITodoItem } from "@/store/modules/todo";
+import { ITodoItem } from "@/store/modules/todo/types";
 import { computed } from "vue"
 
 const store: Store<any> = useStore();
