@@ -1,6 +1,6 @@
 <template>
     <div class="todo-item">
-        <el-checkbox :model-value="props.item.status === FINISHED"
+        <el-checkbox :model-value="item.status === FINISHED"
                      @change="changeStatus"
                      class="checkbox"
         />
@@ -15,7 +15,7 @@
                        v-else
                        plain
             >已完成</el-button>
-            <el-button type="danger" @click="removeTodo(props.item.id)">删除</el-button>
+            <el-button type="danger" @click="removeTodo(item.id)">删除</el-button>
         </div>
     </div>
 </template>
@@ -23,6 +23,7 @@
 import { ITodoItem, TODO_ITEM_STATUS } from "@/store/modules/todo";
 import { Store, useStore} from 'vuex'
 import { useTodo } from "@/hooks";
+import { useProp } from "@/hooks/useProp";
 const props = defineProps<{
     item: ITodoItem
 }>()

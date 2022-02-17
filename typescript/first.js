@@ -55,5 +55,21 @@ class Class1 {
         return "";
     }
 }
+Class1.v_static = 'v_static';
 const class1 = new Class1();
 console.log(class1);
+// 抽象类不能被实例化
+class Animal {
+}
+class Dog extends Animal {
+    eat() {
+        console.log(`小狗吃东西`);
+    }
+}
+class Pig extends Animal {
+    eat() {
+        console.log(`小猪吃东西`);
+    }
+}
+const fun1 = (value) => {
+};

@@ -56,6 +56,7 @@ interface IClass {
 }
 
 class Class1 implements IClass{
+    static v_static: string = 'v_static';
     private a: string;
     private _name: string = 'jack';
     get name() {
@@ -79,7 +80,33 @@ class Class1 implements IClass{
     }
 
 }
-const class1 = new Class1()
+const class1 = new Class1();
 console.log(class1);
+
+// 抽象类不能被实例化
+abstract class Animal {
+    // 抽象方法不做具体实现，只声明
+    abstract eat(): void;
+}
+
+class Dog extends Animal {
+    eat(): void {
+        console.log(`小狗吃东西`)
+    }
+}
+
+
+class Pig extends Animal{
+    eat(): void {
+        console.log(`小猪吃东西`)
+    }
+
+}
+
+// 函数类型
+type funType = (value: number) => void;
+const fun1: funType = (value: number): void => {
+
+}
 
 
