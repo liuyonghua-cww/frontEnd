@@ -11,6 +11,9 @@ import txt from './assets/test.txt'
 import pngSrc from './assets/images/b1.png'
 import './assets/style.css'
 import './assets/style-less.less'
+// 再次引入lodash
+import _ from 'lodash';
+
 helloWorld()
 const img = document.createElement('img');
 img.src = imageSrc
@@ -28,3 +31,5 @@ const img3 = document.createElement('img');
 img3.src = pngSrc
 document.body.appendChild(img3)
 
+const str = _.join(['hu', 'caiWei'], '')
+console.log(str);
