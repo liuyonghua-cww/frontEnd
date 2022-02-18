@@ -72,7 +72,7 @@ module.exports = {
     },
     optimization: {
         splitChunks: {
-            chunks: 'all'
+            chunks: 'all' // 分离公共模块
         }
     }
 };
