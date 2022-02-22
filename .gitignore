@@ -23,3 +23,5 @@ package-lock.json
 yarn.lock
 
 /getMakepieData/public/echarts
+/echarts-demos/public/echarts
+/echarts-demos/echarts-list
