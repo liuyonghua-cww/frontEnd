@@ -12,6 +12,11 @@ const routes: Array<RouteRecordRaw> = [
                 path: 'list',
                 name: 'List',
                 component: import('@/components/List/index.vue'),
+            },
+            {
+                path: 'editor',
+                name: 'Editor',
+                component: import('@/components/Editor/index.vue')
             }
         ]
     }

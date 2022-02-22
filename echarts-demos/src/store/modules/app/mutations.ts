@@ -4,11 +4,14 @@ const mutations: Mutations & MutationTree<AppState> = {
     [TYPES.SET_SINGLE_LIST](state: AppState, singleList: SingleList): void {
         state.singleList = singleList;
     },
-    [TYPES.SET_PAGE_SIZE](state: AppState, pageSize: number): void {
-        state.pageSize = pageSize;
+    [TYPES.SET_PAGE_COUNT](state: AppState, pageCount: number): void {
+        state.pageCount = pageCount;
     },
     [TYPES.GET_LIST](state: AppState, list: SingleList[]): void {
         state.list = list;
+    },
+    [TYPES.SET_PAGE_INDEX](state: AppState, pageIndex: number): void {
+        state.pageIndex = pageIndex;
     }
 
 }
