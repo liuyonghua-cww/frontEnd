@@ -8,7 +8,7 @@
                     v-for="(id, index) of ids"
                     :key="id"
             >
-                <router-link  :to="{name: 'Editor', query: {id: id}}">
+                <router-link  :to="{name: 'Editor', query: {id: id, path: path}}">
                     <div class="grid-content">
                         <img :src="getImageUrl(path, id)" alt="图片加载失败"/>
                     </div>

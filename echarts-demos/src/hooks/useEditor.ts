@@ -1,18 +1,17 @@
 import { Store, useStore } from "vuex";
-import { ComponentInternalInstance, getCurrentInstance } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
+import { SingleList, TYPES } from "@/store/modules/app/types";
 
 interface UseEditor {
-    getOption(): Promise<string>;
+    getOption(): Promise<void>;
 }
 
 export const useEditor = (): UseEditor => {
     const store: Store<any> = useStore();
-    const route = useRoute();
-    const getOption = async (): Promise<string> => {
-        const {data: option}: { data: string } = await axios.get(store.state.app.singleList.path + route.query.id + '.txt')
-        return option
+    const { query } = useRoute();
+    const getOption = async (): Promise<void> => {
+        await store.dispatch(`app/${TYPES.GET_ECHARTS_OPTION}`, { id: query.id, path: query.path })
     };
 
     return {

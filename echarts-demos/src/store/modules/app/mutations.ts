@@ -12,6 +12,9 @@ const mutations: Mutations & MutationTree<AppState> = {
     },
     [TYPES.SET_PAGE_INDEX](state: AppState, pageIndex: number): void {
         state.pageIndex = pageIndex;
+    },
+    [TYPES.GET_ECHARTS_OPTION](state: AppState, echartsOptions: string): void {
+        state.echartsOption = echartsOptions;
     }
 
 }

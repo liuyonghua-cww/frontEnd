@@ -1,6 +1,7 @@
 import { SingleList, TYPES } from "@/store/modules/app/types";
 import { Store, useStore } from "vuex";
 import { ComponentInternalInstance, computed, ComputedRef, getCurrentInstance } from "vue";
+import { useAppConfig } from "@/hooks/core";
 
 interface UseList {
     getSingleList(): void;
@@ -9,8 +10,7 @@ interface UseList {
 }
 export const useList = (): UseList => {
     const store: Store<any> = useStore();
-    const instance: ComponentInternalInstance | null = getCurrentInstance();
-    const baseUrl: string = instance?.appContext.app.config.globalProperties.baseUrl;
+    const baseUrl = useAppConfig<string>('baseUrl');
 
     const getSingleList = (): void => {
         const pageIndex: number = store.state.app.pageIndex;

@@ -8,7 +8,8 @@ const state: AppState = {
         pageIndex: 0,
         ids: [],
         path: '',
-    }
+    },
+    echartsOption: '',
 }
 
 export default state;

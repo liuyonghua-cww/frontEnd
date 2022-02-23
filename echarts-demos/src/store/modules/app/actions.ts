@@ -14,6 +14,11 @@ const actions: Actions & ActionTree<AppState, any> = {
     },
     [TYPES.SET_PAGE_INDEX]({commit}: AugmentedActionContext, pageIndex: number): void {
         commit(TYPES.SET_PAGE_INDEX, pageIndex);
+    },
+    async [TYPES.GET_ECHARTS_OPTION]({commit, state}: AugmentedActionContext, params: {path: string, id: string}): Promise<void> {
+        const data = await axios.get(params.path + params.id + '.txt')
+        const echartsOption = data.data + ';return option;'
+        commit(TYPES.GET_ECHARTS_OPTION, echartsOption);
     }
 
 }
