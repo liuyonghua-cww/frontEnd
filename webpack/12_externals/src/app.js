@@ -1,1 +1,4 @@
-console.log('hello extensions');
+import $ from 'jquery';
+console.log('hello externals');
+console.log($);
+

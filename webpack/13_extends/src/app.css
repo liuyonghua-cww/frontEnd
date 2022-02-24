@@ -1,0 +1,7 @@
+body {
+    background-color: skyblue;
+    display: flex;
+    div {
+        background-color: darkseagreend;
+    }
+}
