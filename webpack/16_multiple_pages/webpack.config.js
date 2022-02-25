@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry:{
         main: {
-            import: ['./src/app.js', './src/app1.js'],
+            import: ['./src/index.js', './src/app1.js'],
             dependOn: 'lodash'
         },
         main2: {
@@ -21,7 +21,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: '多页面应用',
             template: './index.html',
-            chunks: ['main', 'lodash'], // 指定引入哪些打包出来的文件
+            chunks: ['main', 'lodash'], // 指定引入哪些打包出来的文件，默认会引入所有的chunks
             filename: 'index.html'
         }),
         new HtmlWebpackPlugin({

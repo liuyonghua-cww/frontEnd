@@ -1,7 +1,7 @@
 const path = require("path")
 const htmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-    entry: './app.js',
+    entry: './index.js',
     output: {
         clean: true
     },
