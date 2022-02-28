@@ -8,18 +8,23 @@ module.exports = {
     mode: 'production',
     entry: './src/index.js',
     output: {
-        path: path.resolve(__dirname, './dist')
+        path: path.resolve(__dirname, './dist'),
+        clean: true
     },
     plugins: [
         new HtmlWebpackPlugin(),
         new ModuleFederationPlugin({
-            name: 'nav',
+            name: 'home',
             filename: 'remoteEntry.js',
-            remotes: {},
-            exposes: {
-                './Header': './src/Header.js'
+            remotes: {
+                nav: 'nav@http://localhost:8080/remoteEntry.js'
             },
-            shared: {}
+            exposes: {
+                './HomeList': './src/HomeList.js'
+            },
+            shared: {
+
+            }
         })
     ],
 };
