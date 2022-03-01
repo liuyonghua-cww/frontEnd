@@ -1,6 +1,6 @@
 <template>
     <h1>App template</h1>
-    <div>provide————车辆信息：{{carInfo.name}}---{{carInfo.price}}</div>
+    <div>provide————车辆信息：{{ carInfo.name }}---{{ carInfo.price }}</div>
     <!--<div>
         <list v-for="(item, index) of data"
               :key="index"
@@ -34,22 +34,15 @@
     <teleport-test/>
     <hr>
     <vuex-test/>
+    <hr>
+    <v-model-test />
 </template>
 
-<script>
-import {
-    ref,
-    onMounted,
-    onBeforeMount,
-    getCurrentInstance,
-    reactive,
-    provide
-} from "vue";
-import List from './components/List';
-import ReturnRenderFunction from "@/components/returnRenderFunction";
-import RefsReactive from './components/refs-reactive'
-import ProxyTest from './components/Proxy-test'
-import Computed from './components/Computed'
+<script setup>
+import { getCurrentInstance, onBeforeMount, onMounted, provide, ref } from "vue";
+import RefsReactive from './components/refs-reactive';
+import ProxyTest from './components/Proxy-test';
+import Computed from './components/Computed';
 import Watch from "./components/Watch";
 import WatchEffect from "./components/WatchEffect";
 import LifeCycle from "./components/LifeCycle";
@@ -59,63 +52,41 @@ import CustomRef from "@/components/CustomRef";
 import Inject from '@/components/Inject';
 import TeleportTest from '@/components/Teleport';
 import VuexTest from "@/components/VuexTest";
-const _data = [ { value: 'lucy', id: 1 }, { value: 'jack', id: 2 } ];
+import VModelTest from '@/components/v-model/index'
+
+const _data = [{ value: 'lucy', id: 1 }, { value: 'jack', id: 2 }];
 const _remove = (data, id) => {
     return data.filter(item => item.id !== id);
 };
-export default {
-    name: 'App',
-    components: {
-        List,
-        ReturnRenderFunction,
-        RefsReactive,
-        ProxyTest,
-        Computed,
-        Watch,
-        WatchEffect,
-        LifeCycle,
-        HookTest,
-        ToRefAndToRefs,
-        CustomRef,
-        Inject,
-        TeleportTest,
-        VuexTest
-    },
 
-    setup(props, ctx) {
-        const instance = getCurrentInstance();
-        // console.log(instance.appContext.config.globalProperties);
 
-        const data = ref(_data);
-        // console.log(data);
+const instance = getCurrentInstance();
+// console.log(instance.appContext.config.globalProperties);
 
-        // console.log('setup');
-        onBeforeMount(() => {
-            // console.log('beforeMount');
-        });
-        onMounted(() => {
-            // console.log('mounted');
-        });
+const data = ref(_data);
+// console.log(data);
 
-        const remove = (id) => {
-            data.value = _remove(data.value, id);
-        };
+// console.log('setup');
+onBeforeMount(() => {
+    // console.log('beforeMount');
+});
+onMounted(() => {
+    // console.log('mounted');
+});
 
-        const isShowLiftCycle = ref(true)
-
-        const carInfo = {
-            name: '奔驰',
-            price: '100w'
-        }
-        provide('carInfo', carInfo)
-        return {
-            data,
-            remove,
-            isShowLiftCycle,
-            carInfo
-        };
-    }
+const remove = (id) => {
+    data.value = _remove(data.value, id);
 };
+
+const isShowLiftCycle = ref(true);
+
+const carInfo = {
+    name: '奔驰',
+    price: '100w'
+};
+provide('carInfo', carInfo);
+
+
 </script>
 
 <style>
