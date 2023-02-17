@@ -37,6 +37,27 @@
       }
     }
   ],
+  "subPackages": [
+    {
+      "root": "subPages",
+      "pages": [
+        {
+          "path": "news/news",
+          "style": {
+            "navigationBarTitleText": "",
+            "enablePullDownRefresh": false
+          }
+        },
+        {
+          "path": "chart/chart",
+          "style": {
+            "navigationBarTitleText": "聊天界面",
+            "enablePullDownRefresh": false
+          }
+        }
+      ]
+    }
+  ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-app",
@@ -51,19 +72,27 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "微信"
+        "text": "微信",
+        "iconPath": "static/images/对话.png",
+        "selectedIconPath": "static/images/对话-copy.png"
       },
       {
         "pagePath": "pages/contacts/contacts",
-        "text": "通讯录"
+        "text": "通讯录",
+        "iconPath": "static/images/通讯录.png",
+        "selectedIconPath": "static/images/通讯录-copy.png"
       },
       {
         "pagePath": "pages/discover/discover",
-        "text": "发现"
+        "text": "发现",
+        "iconPath": "static/images/发现.png",
+        "selectedIconPath": "static/images/发现-copy.png"
       },
       {
         "pagePath": "pages/me/me",
-        "text": "我"
+        "text": "我",
+        "iconPath": "static/images/我.png",
+        "selectedIconPath": "static/images/我-copy.png"
       }
     ]
   }

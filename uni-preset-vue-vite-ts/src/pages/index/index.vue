@@ -1,6 +1,9 @@
 <template>
     <view class="content">
-       <text>首页</text>
+        <text>首页</text>
+        <view>
+            <navigator url="/subPages/chart/chart">前往聊天</navigator>
+        </view>
     </view>
 </template>
 
@@ -17,12 +20,13 @@ onPullDownRefresh(() => {
 })
 </script>
 
-<style>
+<style lang="scss">
 .content {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: $uni-color-primary;
 }
 
 .logo {

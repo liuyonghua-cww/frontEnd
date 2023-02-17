@@ -16,4 +16,7 @@ onPageNotFound(() => {
     })
 })
 </script>
-<style></style>
+<style lang="scss">
+@import "@/static/font/iconfont.css";
+@import "vk-uview-ui/index.scss";
+</style>
