@@ -1,0 +1,51 @@
+.index-container {
+    height: 100%;
+
+    > .jump-tabBar-btns {
+        display: flex;
+        justify-content: space-evenly;
+        transform: translateY(-40rpx);
+
+        > .btn {
+            width: 320rpx;
+        }
+    }
+
+    > .recommend-information {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        > .content {
+            width: 100%;
+            padding: 10rpx;
+            box-sizing: border-box;
+
+            > .recommend {
+                //display: flex;
+                //flex-wrap: wrap;
+                ::v-deep.item {
+                    //flex: 50%;
+                    //box-sizing: border-box;
+                    //padding: 20rpx;
+                    .item-container {
+                        > .feed-content {
+                            height: 60rpx;
+                            line-height: 60rpx;
+                            padding: 0 10rpx;
+                        }
+
+                        > .profile {
+                            height: 80rpx;
+                            display: flex;
+                            align-items: center;
+                            .u-image {
+                                height: auto!important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

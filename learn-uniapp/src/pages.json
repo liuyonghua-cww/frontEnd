@@ -49,7 +49,7 @@
 					}
 				},
 				{
-					"path": "chart/chart",
+					"path": "chat/chat",
 					"style": {
 						"navigationBarTitleText": "聊天界面",
 						"enablePullDownRefresh": false

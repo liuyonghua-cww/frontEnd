@@ -1,0 +1,67 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3900857 */
+  src: url('~static/font/iconfont.woff2?t=1677032905221') format('woff2'),
+       url('~static/font/iconfont.woff?t=1677032905221') format('woff'),
+       url('~static/font/iconfont.ttf?t=1677032905221') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-airudiantubiaohuizhi-zhuanqu_zixundongtai:before {
+  content: "\e69d";
+}
+
+.icon-airudiantubiaohuizhi-zhuanqu_zixundongtai-copy:before {
+  content: "\e8bb";
+}
+
+.icon-shouye:before {
+  content: "\e64f";
+}
+
+.icon-shouye-copy:before {
+  content: "\e8bc";
+}
+
+.icon-tupian:before {
+  content: "\e8ba";
+}
+
+.icon-wo:before {
+  content: "\e600";
+}
+
+.icon-duihua:before {
+  content: "\e620";
+}
+
+.icon-tongxunlu:before {
+  content: "\e632";
+}
+
+.icon-faxian:before {
+  content: "\e8af";
+}
+
+.icon-wo-copy:before {
+  content: "\e8b0";
+}
+
+.icon-duihua-copy:before {
+  content: "\e8b1";
+}
+
+.icon-tongxunlu-copy:before {
+  content: "\e8b2";
+}
+
+.icon-faxian-copy:before {
+  content: "\e8b3";
+}
+

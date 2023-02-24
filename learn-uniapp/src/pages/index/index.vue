@@ -2,13 +2,22 @@
     <view class="content">
         <text>首页</text>
         <view>
-            <navigator url="/subPages/chart/chart">前往聊天</navigator>
+            <navigator url="/subPages/chat/chat">前往聊天</navigator>
         </view>
     </view>
 </template>
 
 <script >
-
+export default {
+    /*http://ts.lagou.uieee.com/api/v2*/
+    onLoad() {
+        console.log(process.env.NODE_ENV);
+        // #ifdef H5
+        alert('hello');
+        // #endif
+        console.log(uni.getSystemInfoSync().platform);
+    }
+}
 </script>
 
 <style lang="scss">
@@ -23,10 +32,7 @@
 .logo {
     height: 200rpx;
     width: 200rpx;
-    margin-top: 200rpx;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50rpx;
+    margin: 200rpx auto 50rpx;
 }
 
 .text-area {

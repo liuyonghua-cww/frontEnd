@@ -1,0 +1,57 @@
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: auto;
+
+    ::v-deep .content-container {
+        flex: 1;
+        padding: 20rpx;
+        overflow: auto;
+
+        .text {
+            min-height: 50rpx;
+
+            text {
+                font-size: 30rpx !important;
+                word-break: break-all;
+            }
+        }
+
+        .img {
+            display: flex;
+
+            image {
+                width: 200rpx !important;
+            }
+        }
+    }
+
+    .content-input {
+        display: flex;
+        align-items: center;
+        // padding-bottom 不需要设置 由模板中去动态设置
+        padding: 20rpx 20rpx 0;
+        position: fixed;
+        background-color: #fff;
+        bottom: 0;
+        width: 100%;
+        box-sizing: border-box;
+
+
+        > input {
+            height: 100%;
+            flex: 1;
+        }
+
+        > icon {
+            margin: 0 20rpx;
+            font-size: 80rpx;
+        }
+
+        > .btn-send {
+            width: 100rpx;
+        }
+
+    }
+}
