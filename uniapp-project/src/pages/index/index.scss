@@ -21,10 +21,10 @@
             padding: 10rpx;
             box-sizing: border-box;
 
-            > .recommend {
+            ::v-deep .recommend {
                 //display: flex;
                 //flex-wrap: wrap;
-                ::v-deep.item {
+                .item {
                     //flex: 50%;
                     //box-sizing: border-box;
                     //padding: 20rpx;
@@ -43,6 +43,32 @@
                                 height: auto!important;
                             }
                         }
+                    }
+                }
+            }
+
+            ::v-deep .news {
+                .u-list-item {
+                    .u-cell__body {
+                        align-items: stretch;
+                        .u-cell__body__content {
+                            align-items: stretch;
+                            .left {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: space-between;
+                                height: 100%;
+                                .bottom {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    font-size: 20rpx;
+                                }
+                            }
+
+                        }
+                    }
+                    .u-image {
+                        height: auto!important;
                     }
                 }
             }

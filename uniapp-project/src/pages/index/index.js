@@ -19,22 +19,58 @@ export default {
             ],
             tabCurrent: 0,
             feedsList: [],
-            newsList: []
+            feedsLoading: false,
+            newsList: [],
+            newsLoading: false,
+            showNavBar: false,
+            oldFeedsScrollTop: 0,
+            oldNewsScrollTop: 0
         };
     },
     onLoad() {
         this.getAdvertisingSpace();
-        this.getFeeds();
-        this.getNews();
+        this.getFeeds('reset');
+        this.getNews('reset');
+    },
+    onPageScroll(e) {
+        if (this.tabCurrent === 0) {
+            this.oldFeedsScrollTop = e.scrollTop;
+        } else {
+            this.oldNewsScrollTop = e.scrollTop;
+        }
+
+        this.showNavBar = e.scrollTop > 220;
+    },
+    onPullDownRefresh() {
+        if (this.tabCurrent === 0) {
+            this.getFeeds('reset');
+            this.$refs.waterfallsFlowRef.refresh();
+        } else {
+            this.getNews('reset');
+        }
+    },
+    onReachBottom() {
+        if (this.tabCurrent === 0) {
+            if (this.feedsLoading) {
+                return
+            }
+            this.getFeeds();
+        } else {
+            if (this.newsLoading) {
+                return
+            }
+            this.getNews();
+        }
     },
     methods: {
         async getAdvertisingSpace() {
             const res = await getAdvertisingSpace();
             this.swiperImageList = res.map(item => item.data)
         },
-        async getFeeds() {
+        async getFeeds(type) {
+            this.feedsLoading = true;
             const res = await getFeeds();
-            this.feedsList = res.feeds.map(item => {
+            let feedsList = res.feeds.map(item => {
                 return {
                     ...item,
                     image: baseFileUrl(item.images[0].file),
@@ -42,10 +78,29 @@ export default {
                     name: item.user.name
                 }
             });
-            this.$refs.waterfallsFlowRef.refresh();
+            if (type === 'reset') {
+                this.feedsList = feedsList;
+            } else {
+                this.feedsList = [...this.feedsList, ...feedsList]
+            }
+            this.feedsLoading = false;
+
         },
-        async getNews() {
+        async getNews(type) {
+            this.newsLoading = true;
             const res = await getNews();
+            let newsList = res.map(item => {
+                return {
+                    ...item,
+                    image: baseFileUrl(item.image.id),
+                }
+            })
+            if (type === 'reset') {
+                this.newsList = newsList;
+            } else {
+                this.newsList = [...this.newsList, ...newsList]
+            }
+            this.newsLoading = false;
         },
         linkTo(index) {
             uni.navigateTo({
@@ -59,6 +114,22 @@ export default {
         },
         toggleRecommendAndInformation(e) {
             this.tabCurrent = e.index;
+            if (this.tabCurrent === 0) {
+                console.log(this.oldFeedsScrollTop);
+                this.$nextTick(() => {
+                    uni.pageScrollTo({
+                        duration: 0,
+                        scrollTop: this.oldFeedsScrollTop
+                    })
+                })
+            } else {
+                this.$nextTick(() => {
+                    uni.pageScrollTo({
+                        duration: 0,
+                        scrollTop: this.oldNewsScrollTop
+                    })
+                })
+            }
         }
     }
 };
