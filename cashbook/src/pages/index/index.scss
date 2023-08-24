@@ -1,0 +1,27 @@
+.main {
+    height: 100%;
+
+    > .filter {
+        padding: 0 40rpx;
+        background-color: #3574F6;
+        height: 100 rpx;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        > ::v-deep .date {
+            --cell-background-color: #3574F6;
+            --cell-text-color: #fff;
+            .van-cell {
+                padding-left: 0;
+            }
+        }
+        >.btn {
+            >text {
+                color: #fff;
+                font-size: 28rpx;
+                margin-left: 10rpx;
+            }
+        }
+    }
+}
