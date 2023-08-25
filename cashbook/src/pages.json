@@ -7,7 +7,16 @@
         "navigationBarTitleText": "cashbook",
         "navigationBarTextStyle": "white",
         "navigationBarBackgroundColor": "#3574F6",
-        "enablePullDownRefresh": true
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/statistics/index",
+      "style": {
+        "navigationBarTitleText": "统计",
+        "navigationBarTextStyle": "white",
+        "navigationBarBackgroundColor": "#3574F6",
+        "enablePullDownRefresh": false
       }
     }
   ],
@@ -66,5 +75,22 @@
       "van-collapse-item": "/wxcomponents/vant/collapse-item/index",
       "van-picker": "/wxcomponents/vant/picker/index"
     }
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/statistics/index",
+        "text": "统计"
+      }
+
+    ]
   }
 }
