@@ -1,0 +1,5 @@
+图表放在最后
+其他元素使用raf 进行分片显示
+图片懒加载  intersectionOberserve
+路由页面的懒加载 只加载当前路由需要的js
+服务端进行资源的gzip压缩
